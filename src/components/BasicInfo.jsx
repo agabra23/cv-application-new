@@ -1,4 +1,4 @@
-export default function BasicInfo({ basicInfo, saveChanges }) {
+export default function BasicInfo({ saveChanges }) {
   return (
     <fieldset className="basic-info-wrapper">
       <legend>Basic Info</legend>
