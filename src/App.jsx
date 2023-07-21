@@ -1,8 +1,6 @@
 import BasicInfo from "./components/BasicInfo";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import RenderedPDF from "./components/RenderedPDF";
-import { PDFViewer } from "@react-pdf/renderer";
 import { useState } from "react";
 
 function App() {
@@ -48,9 +46,6 @@ function App() {
           <p>{basicInfo.phone}</p>
           <p>Site</p>
           <p>{basicInfo.website}</p>
-          <PDFViewer width={350} height={500}>
-            <RenderedPDF />
-          </PDFViewer>
         </div>
       </main>
     </>
