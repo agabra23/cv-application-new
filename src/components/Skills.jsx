@@ -1,3 +1,5 @@
+import SkillsOverview from "./SkillsOverview";
+
 export default function Skills() {
   return (
     <fieldset className="skills-wrapper">
@@ -9,12 +11,6 @@ export default function Skills() {
       <button className="add-skills-btn form-btn" type="button">
         Add
       </button>
-
-      <ul className="skills-overview">
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
     </fieldset>
   );
 }
