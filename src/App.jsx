@@ -1,5 +1,6 @@
 import BasicInfo from "./components/BasicInfo";
 import Skills from "./components/Skills";
+import Projects from "./components/Projects";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <form action="">
             <BasicInfo />
             <Skills />
+            <Projects />
           </form>
         </div>
       </main>

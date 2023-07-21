@@ -11,6 +11,8 @@ export default function Skills() {
       <button className="add-skills-btn form-btn" type="button">
         Add
       </button>
+
+      <SkillsOverview />
     </fieldset>
   );
 }
