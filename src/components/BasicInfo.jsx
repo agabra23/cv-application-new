@@ -1,19 +1,19 @@
-export default function BasicInfo() {
+export default function BasicInfo({ basicInfo, saveChanges }) {
   return (
     <fieldset className="basic-info-wrapper">
       <legend>Basic Info</legend>
 
       <label htmlFor="fullName">Full Name</label>
-      <input type="text" id="fullName" />
+      <input type="text" id="fullName" onChange={saveChanges} />
 
       <label htmlFor="email">Email</label>
-      <input type="email" id="email" />
+      <input type="email" id="email" onChange={saveChanges} />
 
-      <label htmlFor="phoneNumber">Phone Number</label>
-      <input type="phone" id="phoneNumber" />
+      <label htmlFor="phone">Phone Number</label>
+      <input type="phone" id="phone" onChange={saveChanges} />
 
       <label htmlFor="website">Website or LinkedIn URL</label>
-      <input type="text" id="website" />
+      <input type="text" id="website" onChange={saveChanges} />
     </fieldset>
   );
 }
