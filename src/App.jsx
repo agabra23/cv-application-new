@@ -4,6 +4,7 @@ import Projects from "./components/Projects";
 import { useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import JSXtoPDF from "./components/JSXtoPDF";
+import html2pdf from "html2pdf.js/dist/html2pdf.min";
 
 function App() {
   // Basic Info State
@@ -57,7 +58,26 @@ function App() {
 
   // JSX to be converted to PDF
 
-  // const printElement = ReactDOMServer.renderToString();
+  const pdfJSX = () => {
+    return <JSXtoPDF />;
+  };
+
+  const printHandler = () => {
+    const printElement = ReactDOMServer.renderToString(
+      <JSXtoPDF
+        basicInfo={basicInfo}
+        skillsList={skillsList}
+        projectsList={projectList}
+      />
+    );
+
+    const opt = {
+      pagebreak: 'avoid',
+    };
+    // const printElement = pdfJSX();
+
+    html2pdf().set(opt).from(printElement).save();
+  };
 
   return (
     <>
@@ -81,7 +101,13 @@ function App() {
 
         {/* PDF Render */}
 
-        <JSXtoPDF basicInfo={basicInfo} skillsList={skillsList} projectsList={projectList} />
+        <button onClick={printHandler}>Save PDF</button>
+
+        <JSXtoPDF
+          basicInfo={basicInfo}
+          skillsList={skillsList}
+          projectsList={projectList}
+        />
       </main>
     </>
   );
