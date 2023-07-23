@@ -9,10 +9,10 @@ function App() {
   // Basic Info State
 
   const [basicInfo, setBasicInfo] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    website: "",
+    fullName: "Enter Name",
+    email: "Enter Email",
+    phone: "Enter Phone",
+    website: "example.com",
   });
 
   const saveChanges = (e) => {
@@ -81,7 +81,7 @@ function App() {
 
         {/* PDF Render */}
 
-        <JSXtoPDF basicInfo={basicInfo} />
+        <JSXtoPDF basicInfo={basicInfo} skillsList={skillsList} projectsList={projectList} />
       </main>
     </>
   );

@@ -4,7 +4,6 @@
   flex-direction: column;
   width: 21cm;
   height: 29.7cm;
-  margin: auto;
   color: #333;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,16 +22,17 @@
 
 .pdf-header > h2 {
   font-weight: 100;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .pdf-header > h1 {
   font-weight: 200;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 
 .pdf-header > h2,
-.pdf-header > h1 {
+.pdf-header > h1,
+ul {
   margin: 0;
 }
 
@@ -43,12 +43,47 @@
 
 .left-column {
   flex: 1;
-  padding: 10px;
+  padding: 1rem;
   text-align: right;
+  font-size: 1rem;
+}
+
+.left-column > div > h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.left-column > div > p {
+  margin: 0.5rem 0;
 }
 
 .main-body {
   flex: 3;
-  padding: 10px;
+  padding: 1rem;
   background-color: #fafafa;
+}
+
+.skills-section > ul > li {
+  list-style: none;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.left-section {
+  margin: 0.5rem 0 3.5rem 0;
+}
+
+.main-body > div > h2 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.project-title {
+  list-style: none;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-bullet {
+  margin-bottom: .25rem;
 }
