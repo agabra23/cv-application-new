@@ -1,21 +1,13 @@
 import SkillsOverview from "./SkillsOverview";
 import { useState } from "react";
 
-export default function Skills() {
-  const [skillsList, setSkillsList] = useState([]);
-  const [skillValue, setSkillValue] = useState("");
-
-  const addSkill = () => {
-    setSkillsList([...skillsList, skillValue]);
-    setSkillValue("");
-  };
-
-  const deleteItem = (index) => {
-    const tempList = [...skillsList];
-    tempList.splice(index, 1);
-    setSkillsList(tempList);
-  };
-
+export default function Skills({
+  skillsList,
+  skillValue,
+  addSkill,
+  deleteItem,
+  changeHandler,
+}) {
   const enterHandler = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -32,7 +24,7 @@ export default function Skills() {
         type="text"
         id="skillInput"
         value={skillValue}
-        onChange={(e) => setSkillValue(e.target.value)}
+        onChange={changeHandler}
         onKeyDown={enterHandler}
       />
 

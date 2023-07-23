@@ -23,6 +23,24 @@ function App() {
     });
   };
 
+  const [skillsList, setSkillsList] = useState([]);
+  const [skillValue, setSkillValue] = useState("");
+
+  const addSkill = () => {
+    setSkillsList([...skillsList, skillValue]);
+    setSkillValue("");
+  };
+
+  const deleteItem = (index) => {
+    const tempList = [...skillsList];
+    tempList.splice(index, 1);
+    setSkillsList(tempList);
+  };
+
+  const changeHandler = (e) => {
+    setSkillValue(e.target.value);
+  };
+
   return (
     <>
       <header>
@@ -32,7 +50,13 @@ function App() {
         <div className="input-section">
           <form action="">
             <BasicInfo basicInfo={basicInfo} saveChanges={saveChanges} />
-            <Skills />
+            <Skills
+              skillsList={skillsList}
+              skillValue={skillValue}
+              addSkill={addSkill}
+              deleteItem={deleteItem}
+              changeHandler={changeHandler}
+            />
             <Projects />
           </form>
         </div>
