@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function Projects() {
-  const [projectList, setProjectList] = useState([]);
+export default function Projects({ projectList, addProject }) {
   const [projectTitleInput, setProjectTitleInput] = useState("");
   const [projectBulletInput, setProjectBulletInput] = useState("");
   const [projectDescriptionList, setProjectDescriptionList] = useState([]);
@@ -42,7 +41,7 @@ export default function Projects() {
     if (projectTitleInput === "") return;
     if (projectDescriptionList.length === 0) return;
 
-    setProjectList([
+    addProject([
       ...projectList,
       {
         title: projectTitleInput,

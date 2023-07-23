@@ -45,6 +45,12 @@ function App() {
 
   // Project State
 
+  const [projectList, setProjectList] = useState([]);
+
+  const addProject = (newState) => {
+    setProjectList(newState);
+  };
+
   return (
     <>
       <header>
@@ -61,7 +67,7 @@ function App() {
               deleteItem={deleteItem}
               changeHandler={changeHandler}
             />
-            <Projects />
+            <Projects projectList={projectList} addProject={addProject} />
           </form>
         </div>
 
