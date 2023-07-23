@@ -1,5 +1,4 @@
 import SkillsOverview from "./SkillsOverview";
-import { useState } from "react";
 
 export default function Skills({
   skillsList,
