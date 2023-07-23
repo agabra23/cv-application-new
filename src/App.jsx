@@ -23,6 +23,8 @@ function App() {
     });
   };
 
+  const websiteURL = "https:/www." + basicInfo.website;
+
   const [skillsList, setSkillsList] = useState([]);
   const [skillValue, setSkillValue] = useState("");
 
@@ -40,6 +42,8 @@ function App() {
   const changeHandler = (e) => {
     setSkillValue(e.target.value);
   };
+
+  // Project State
 
   return (
     <>
@@ -69,7 +73,11 @@ function App() {
           <p>Phone</p>
           <p>{basicInfo.phone}</p>
           <p>Site</p>
-          <p>{basicInfo.website}</p>
+          <p>
+            <a href={websiteURL} target="_blank">
+              {basicInfo.website}
+            </a>
+          </p>
         </div>
       </main>
     </>

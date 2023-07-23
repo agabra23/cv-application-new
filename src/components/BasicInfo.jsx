@@ -12,7 +12,7 @@ export default function BasicInfo({ saveChanges }) {
       <label htmlFor="phone">Phone Number</label>
       <input type="phone" id="phone" onChange={saveChanges} />
 
-      <label htmlFor="website">Website or LinkedIn URL</label>
+      <label htmlFor="website">Website or LinkedIn URL: https:/www.</label>
       <input type="text" id="website" onChange={saveChanges} />
     </fieldset>
   );
