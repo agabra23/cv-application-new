@@ -27,8 +27,6 @@ function App() {
     });
   };
 
-  const websiteURL = "https:/www." + basicInfo.website;
-
   // Skills State
 
   const [skillsList, setSkillsList] = useState([]);
@@ -59,12 +57,10 @@ function App() {
 
   // JSX to be converted to PDF
 
-  const printElement = ReactDOMServer.renderToString(JSXtoPDF());
+  // const printElement = ReactDOMServer.renderToString();
 
   return (
     <>
-      {/* Input Section */}
-
       <header>
         <h1>CV Application</h1>
       </header>
@@ -83,10 +79,9 @@ function App() {
           </form>
         </div>
 
-        {/* PDF Section */}
+        {/* PDF Render */}
 
-        <JSXtoPDF />
-        {printElement}
+        <JSXtoPDF basicInfo={basicInfo} />
       </main>
     </>
   );
