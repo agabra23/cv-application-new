@@ -2,8 +2,12 @@ import BasicInfo from "./components/BasicInfo";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import { useState } from "react";
+import ReactDOMServer from "react-dom/server";
+import JSXtoPDF from "./components/JSXtoPDF";
 
 function App() {
+  // Basic Info State
+
   const [basicInfo, setBasicInfo] = useState({
     fullName: "",
     email: "",
@@ -24,6 +28,8 @@ function App() {
   };
 
   const websiteURL = "https:/www." + basicInfo.website;
+
+  // Skills State
 
   const [skillsList, setSkillsList] = useState([]);
   const [skillValue, setSkillValue] = useState("");
@@ -51,15 +57,21 @@ function App() {
     setProjectList(newState);
   };
 
+  // JSX to be converted to PDF
+
+  const printElement = ReactDOMServer.renderToString(JSXtoPDF());
+
   return (
     <>
+      {/* Input Section */}
+
       <header>
         <h1>CV Application</h1>
       </header>
       <main>
         <div className="input-section">
           <form action="">
-            <BasicInfo basicInfo={basicInfo} saveChanges={saveChanges} />
+            <BasicInfo saveChanges={saveChanges} />
             <Skills
               skillsList={skillsList}
               skillValue={skillValue}
@@ -71,20 +83,10 @@ function App() {
           </form>
         </div>
 
-        <div className="pdf-section">
-          <p>Name</p>
-          <p>{basicInfo.fullName}</p>
-          <p>Email</p>
-          <p>{basicInfo.email}</p>
-          <p>Phone</p>
-          <p>{basicInfo.phone}</p>
-          <p>Site</p>
-          <p>
-            <a href={websiteURL} target="_blank">
-              {basicInfo.website}
-            </a>
-          </p>
-        </div>
+        {/* PDF Section */}
+
+        <JSXtoPDF />
+        {printElement}
       </main>
     </>
   );
