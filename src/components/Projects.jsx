@@ -4,6 +4,7 @@ export default function Projects({ projectList, addProject }) {
   const [projectTitleInput, setProjectTitleInput] = useState("");
   const [projectBulletInput, setProjectBulletInput] = useState("");
   const [projectDescriptionList, setProjectDescriptionList] = useState([]);
+  const [projectUrl, setProjectUrl] = useState("");
 
   const saveProjectTitle = (e) => {
     setProjectTitleInput(e.target.value);
@@ -11,6 +12,10 @@ export default function Projects({ projectList, addProject }) {
 
   const saveProjectDescription = (e) => {
     setProjectBulletInput(e.target.value);
+  };
+
+  const saveProjectUrl = (e) => {
+    setProjectUrl(e.target.value);
   };
 
   const addDescriptionBullet = (e) => {
@@ -46,12 +51,14 @@ export default function Projects({ projectList, addProject }) {
       {
         title: projectTitleInput,
         description: projectDescriptionList,
+        url: projectUrl,
       },
     ]);
 
     setProjectTitleInput("");
     setProjectDescriptionList([]);
     setProjectBulletInput("");
+    setProjectUrl("");
   };
 
   const projects = projectList.map((project) => {
@@ -77,6 +84,14 @@ export default function Projects({ projectList, addProject }) {
         value={projectTitleInput}
         id="projectTitle"
         onChange={saveProjectTitle}
+      />
+
+      <label htmlFor="projectUrl">Project URL</label>
+      <input
+        type="text"
+        id="projectUrl"
+        value={projectUrl}
+        onChange={saveProjectUrl}
       />
 
       <label htmlFor="projectBulletInput">Project Bullet Point</label>

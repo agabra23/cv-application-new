@@ -5,6 +5,7 @@ import { useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import JSXtoPDF from "./components/JSXtoPDF";
 import html2pdf from "html2pdf.js/dist/html2pdf.min";
+import Education from "./components/Education";
 
 function App() {
   // Basic Info State
@@ -56,11 +57,25 @@ function App() {
     setProjectList(newState);
   };
 
+  // Education State
+
+  const [education, setEducation] = useState({});
+
+  const saveEducation = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setEducation({
+      ...education,
+      [id]: value,
+    });
+  };
+
   // JSX to be converted to PDF
 
-  const pdfJSX = () => {
-    return <JSXtoPDF />;
-  };
+  // const pdfJSX = () => {
+  //   return <JSXtoPDF />;
+  // };
 
   const printHandler = () => {
     const printElement = ReactDOMServer.renderToString(
@@ -72,9 +87,8 @@ function App() {
     );
 
     const opt = {
-      pagebreak: 'avoid',
+      pagebreak: "avoid",
     };
-    // const printElement = pdfJSX();
 
     html2pdf().set(opt).from(printElement).save();
   };
@@ -96,6 +110,7 @@ function App() {
               changeHandler={changeHandler}
             />
             <Projects projectList={projectList} addProject={addProject} />
+            <Education saveEducation={saveEducation} />
           </form>
         </div>
 
@@ -107,6 +122,7 @@ function App() {
           basicInfo={basicInfo}
           skillsList={skillsList}
           projectsList={projectList}
+          education={education}
         />
       </main>
     </>

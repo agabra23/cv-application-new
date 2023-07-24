@@ -68,7 +68,7 @@ ul {
 
 .skills-section > ul > li {
   list-style: none;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 0.75rem 0;
 }
 
 .left-section {
@@ -89,4 +89,18 @@ ul {
 
 .project-bullet {
   margin-bottom: 0.25rem;
+  list-style: disc;
+}
+
+.project-item {
+  margin-bottom: 1rem;
+}
+
+.project-item > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.left-column > .education-section > p {
+  margin: 1rem 0;
 }

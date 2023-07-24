@@ -1,6 +1,11 @@
 import "../styles/JSXtoPDF.css";
 
-export default function JSXtoPDF({ basicInfo, skillsList, projectsList }) {
+export default function JSXtoPDF({
+  basicInfo,
+  skillsList,
+  projectsList,
+  education,
+}) {
   const websiteURL = "https:/www." + basicInfo.website;
 
   const skills = skillsList.map((skill) => {
@@ -21,12 +26,32 @@ export default function JSXtoPDF({ basicInfo, skillsList, projectsList }) {
     });
 
     return (
-      <div key={crypto.randomUUID()}>
-        <li className="project-title">{project.title}</li>
+      <div className="project-item" key={crypto.randomUUID()}>
+        <a href={project.url} target="_blank">
+          <li className="project-title">{project.title}</li>
+        </a>
         <ul>{bullets}</ul>
       </div>
     );
   });
+
+  const getEducation = () => {
+    if (education.degreeName === "") {
+      return <></>;
+    }
+
+    return (
+      <div className="education-section left-section">
+        <h2>Education</h2>
+        <p>{education.degreeName}</p>
+        <p>{education.universityName}</p>
+        <p>
+          {education.educationStart} - {education.educationEnd}
+        </p>
+        <p>{education.educationCity}</p>
+      </div>
+    );
+  };
 
   return (
     <div className="pdf-page" size="A4">
@@ -52,6 +77,7 @@ export default function JSXtoPDF({ basicInfo, skillsList, projectsList }) {
             <h2>Skills</h2>
             <ul>{skills}</ul>
           </div>
+          {getEducation()}
         </div>
         <div className="main-body">
           <div className="projects-section">
