@@ -104,3 +104,17 @@ ul {
 .left-column > .education-section > p {
   margin: 1rem 0;
 }
+
+.job-title > h3 {
+  margin: 0;
+}
+
+.job-title > h4 {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.job-title {
+  list-style: none;
+}

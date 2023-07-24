@@ -5,6 +5,7 @@ export default function JSXtoPDF({
   skillsList,
   projectsList,
   education,
+  jobList,
 }) {
   const websiteURL = "https:/www." + basicInfo.website;
 
@@ -30,6 +31,28 @@ export default function JSXtoPDF({
         <a href={project.url} target="_blank">
           <li className="project-title">{project.title}</li>
         </a>
+        <ul>{bullets}</ul>
+      </div>
+    );
+  });
+
+  const jobs = jobList.map((job) => {
+    const bullets = job.description.map((bullet) => {
+      return (
+        <li key={crypto.randomUUID()} className="job-bullet">
+          {bullet}
+        </li>
+      );
+    });
+
+    return (
+      <div className="job-item" key={crypto.randomUUID()}>
+        <li className="job-title">
+          <h3>{job.title}</h3>
+          <h4>
+            {job.company}, {job.start} - {job.end}
+          </h4>
+        </li>
         <ul>{bullets}</ul>
       </div>
     );
@@ -83,6 +106,10 @@ export default function JSXtoPDF({
           <div className="projects-section">
             <h2>Projects</h2>
             <ul>{projects}</ul>
+          </div>
+          <div className="work-section">
+            <h2>Work History</h2>
+            <ul>{jobs}</ul>
           </div>
         </div>
       </div>

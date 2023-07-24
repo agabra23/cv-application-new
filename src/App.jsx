@@ -6,6 +6,8 @@ import ReactDOMServer from "react-dom/server";
 import JSXtoPDF from "./components/JSXtoPDF";
 import html2pdf from "html2pdf.js/dist/html2pdf.min";
 import Education from "./components/Education";
+import Work from "./components/Work";
+import "./styles/App.css";
 
 function App() {
   // Basic Info State
@@ -57,6 +59,14 @@ function App() {
     setProjectList(newState);
   };
 
+  // Work State
+
+  const [jobList, setJobList] = useState([]);
+
+  const addJob = (newState) => {
+    setJobList(newState);
+  };
+
   // Education State
 
   const [education, setEducation] = useState({});
@@ -83,6 +93,7 @@ function App() {
         basicInfo={basicInfo}
         skillsList={skillsList}
         projectsList={projectList}
+        jobList={jobList}
       />
     );
 
@@ -110,19 +121,23 @@ function App() {
               changeHandler={changeHandler}
             />
             <Projects projectList={projectList} addProject={addProject} />
+            <Work jobList={jobList} addJob={addJob} />
             <Education saveEducation={saveEducation} />
           </form>
         </div>
 
         {/* PDF Render */}
 
-        <button onClick={printHandler}>Save PDF</button>
+        <button className="print-btn" onClick={printHandler}>
+          Save PDF
+        </button>
 
         <JSXtoPDF
           basicInfo={basicInfo}
           skillsList={skillsList}
           projectsList={projectList}
           education={education}
+          jobList={jobList}
         />
       </main>
     </>

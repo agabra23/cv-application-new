@@ -108,7 +108,9 @@ export default function Projects({ projectList, addProject }) {
 
       <ul>{bullets}</ul>
 
-      <button onClick={saveProject}>Add Project</button>
+      <button className="add-btn" onClick={saveProject}>
+        Add Project
+      </button>
 
       <ul>{projects}</ul>
     </fieldset>

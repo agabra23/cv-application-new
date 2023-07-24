@@ -1,0 +1,21 @@
+input {
+  margin-right: 1rem;
+}
+
+label {
+  margin-right: 0.5rem;
+}
+
+.add-btn {
+  margin: 1rem;
+}
+
+fieldset {
+  padding: 1rem;
+  margin: 1.5rem;
+}
+
+.print-btn {
+  margin: 1.5rem;
+  padding: 1rem;
+}
